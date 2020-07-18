@@ -19,7 +19,7 @@ var opts struct {
 func main() {
 	_, err := flags.Parse(&opts)
 	if err != nil {
-		panic(err.Error())
+		return
 	}
 
 	ctx := context.Background()
