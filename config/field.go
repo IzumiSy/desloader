@@ -2,6 +2,7 @@ package config
 
 import (
 	"reflect"
+	"time"
 )
 
 type Field struct {
@@ -25,7 +26,13 @@ func (field Field) ToStructType() reflect.Type {
 		if field.IsArray {
 			_type = reflect.TypeOf([]int{0})
 		} else {
-			_type = reflect.TypeOf(0)
+			_type = reflect.TypeOf(int(0))
+		}
+	case "flaot":
+		if field.IsArray {
+			_type = reflect.TypeOf([]float64{0})
+		} else {
+			_type = reflect.TypeOf(float64(0))
 		}
 	case "bool":
 		if field.IsArray {
@@ -33,6 +40,8 @@ func (field Field) ToStructType() reflect.Type {
 		} else {
 			_type = reflect.TypeOf(false)
 		}
+	case "time":
+		_type = reflect.TypeOf(time.Time{})
 	default:
 		_type = nil
 	}
