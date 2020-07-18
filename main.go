@@ -13,6 +13,7 @@ var opts struct {
 	ProjectID  string `long:"projectId" description:"Target GCP project ID"`
 	SchemaPath string `long:"schema" description:"A schema definition in YAML format" required:"true"`
 	SourcePath string `long:"source" description:"A source file path in CSV format" required:"true"`
+	Kind       string `long:"kind" description:"Target kind on Datastore" required:"true"`
 }
 
 func main() {
