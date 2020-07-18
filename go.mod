@@ -1,4 +1,4 @@
-module desload
+module desloader
 
 go 1.14
 

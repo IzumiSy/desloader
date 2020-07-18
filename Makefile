@@ -1,7 +1,7 @@
-desload: main.go
-	 GO111MODULE=on go build -o desload
+desloader: main.go
+	 GO111MODULE=on go build -o desloader
 
-build: desload
+build: desloader
 
 clean:
-	 rm -f desload
+	 rm -f desloader

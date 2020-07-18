@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	config "desload/config"
+	config "desloader/config"
 	"fmt"
 
 	flags "github.com/jessevdk/go-flags"

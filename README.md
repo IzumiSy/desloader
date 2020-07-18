@@ -1,11 +1,11 @@
-# Desload
-Desload is a bulk entity loader for GCP Datastore working with YAML formatted schema and CSV formatted data source.
+# Desloader
+Desloader is a bulk entity loader for GCP Datastore working with YAML formatted schema and CSV formatted data source.
 
 ## Usage
 ```bash
- $ ./desload --help
+ $ desloader --help
 Usage:
-  desload [OPTIONS]
+  desloader [OPTIONS]
 
 Application Options:
   --projectId= Target GCP project ID
