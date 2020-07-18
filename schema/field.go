@@ -1,4 +1,4 @@
-package config
+package schema
 
 import (
 	"reflect"
@@ -28,7 +28,7 @@ func (field Field) ToStructType() reflect.Type {
 		} else {
 			_type = reflect.TypeOf(int(0))
 		}
-	case "flaot":
+	case "float":
 		if field.IsArray {
 			_type = reflect.TypeOf([]float64{0})
 		} else {

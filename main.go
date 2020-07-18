@@ -2,8 +2,9 @@ package main
 
 import (
 	"context"
-	config "desloader/config"
+	"desloader/schema"
 	"fmt"
+	"io/ioutil"
 
 	flags "github.com/jessevdk/go-flags"
 	"golang.org/x/oauth2/google"
@@ -43,13 +44,19 @@ func main() {
 		}
 	}
 
-	schema, err := config.Load(opts.SchemaPath)
+	schemaBytes, err := ioutil.ReadFile(opts.SchemaPath)
+	if err != nil {
+		fmt.Printf("Failed reading schema: %s", err.Error())
+		return
+	}
+
+	s, err := schema.New(schemaBytes)
 	if err != nil {
 		fmt.Printf("Error: %s", err.Error())
 		return
 	}
 
-	fmt.Printf("%v", schema)
+	fmt.Printf("%v", s)
 
 	return
 }

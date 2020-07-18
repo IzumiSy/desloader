@@ -1,11 +1,9 @@
-package config
+package schema
 
 import (
 	"fmt"
-	"io/ioutil"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"gopkg.in/yaml.v2"
 )
 
@@ -46,17 +44,8 @@ func (schema Schema) ToBuilder() map[string]StructBuilder {
 	return definitions
 }
 
-func Load(path string) (Schema, error) {
-	if path == "" {
-		return Schema{}, errors.New("Couldn't load schema YAML")
-	}
-
-	yamlBytes, err := ioutil.ReadFile(path)
-	if err != nil {
-		return Schema{}, err
-	}
-
+func New(schemaBytes []byte) (Schema, error) {
 	schema := Schema{}
-	err = yaml.UnmarshalStrict(yamlBytes, &schema)
+	err := yaml.UnmarshalStrict(schemaBytes, &schema)
 	return schema, err
 }
